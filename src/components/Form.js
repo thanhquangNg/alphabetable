@@ -34,23 +34,29 @@ function Form(){
         e.preventDefault();
         let row = document.getElementById("row").value;
         let column = document.getElementById("column").value;
-        var  content = "";
         //remove previous table
-        const tbl = document.querySelector("table");
-        if(tbl){
-        tbl.remove();}
+        var content = true;
         //add new
-        if(row < 0 || isNaN(row) ||column < 0 || isNaN(column) ){
-           content = "Invalid number value for row or column";
+        if(row < 0 || isNaN(row) ||column < 0 || isNaN(column)){
+            console.log( Boolean(row))
+            console.log(column)
+            console.log("no row/column");
+            document.getElementById("table").innerHTML = "Invalid number value for row or column";
+            content = false;
+            
         }
-        if(selectChar.length ===0){
-            content = "You must choose up to 5 characters";
+        if(selectChar.length===0){
+            console.log("no select");
+            document.getElementById("table").innerHTML = "You must choose up to 5 characters";
+            content=false;
         }
-        if(content.length===0){
-            content = "table with "+row+" rows and "+column+" columns generated";
+        if(content){
+            document.getElementById("table").innerHTML = "Table generated succesfully!";
+            const tbl = document.querySelector("table");
+            if(tbl){
+            tbl.remove();}
             generateTable(selectChar,row,column);
         }
-        // document.getElementById("table").innerHTML = content;
     }
 
     function generateTable(arr,row,col){
