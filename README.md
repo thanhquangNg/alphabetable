@@ -16,6 +16,6 @@ Enter the numbers for row and column you want to generate the table.
 
 ## Generate result
 
-![Alphabet Table Function](/img/function.png)
+![Alphabet Table Function](/img/funciton.png)
 After clicking the **Generate**, a table will be generated base on the selected characters and the properties from row and column.
 
